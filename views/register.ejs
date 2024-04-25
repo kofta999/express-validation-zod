@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <% if (success) { %>
+
+    <h1>SUCCESSFUL</h1>
+    <% } %> <% if (errors) { %> <% for (const error in errors) { %>
+    <h2><%= errors[error].at(-1) %></h2>
+
+    <% } %> <% } %>
+
+    <form method="post">
+      <label for="full-name">
+        Full Name
+        <input required type="text" id="full-name" name="fullName" />
+      </label>
+
+      <label for="email">
+        Email
+        <input required type="email" id="email" name="email" />
+      </label>
+
+      <label for="password">
+        Password
+        <input required type="password" id="password" name="password" />
+      </label>
+
+      <label for="confirm-password">
+        Confirm Password
+        <input
+          required
+          type="password"
+          id="confirm-password"
+          name="confirmPassword"
+        />
+      </label>
+
+      <label for="birth-date">
+        Birth date
+        <input required type="date" id="birth-date" name="birthDate" />
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
