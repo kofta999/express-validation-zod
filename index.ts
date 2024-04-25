@@ -5,6 +5,9 @@ import { ZodError, z } from "zod";
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
+app.use(urlencoded({ extended: true }));
+app.set("view engine", "ejs");
+
 const registerFormSchema = z
   .object({
     fullName: z
@@ -47,9 +50,6 @@ const zodValidator: RequestHandler = (req, res, next) => {
     res.render("register", { errors, success: false });
   }
 };
-
-app.use(urlencoded({ extended: true }));
-app.set("view engine", "ejs");
 
 app.get("/", (req, res, next) => {
   res.render("register", { errors: null, success: false });
